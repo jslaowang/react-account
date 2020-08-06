@@ -26,7 +26,7 @@ const Nav = () => {
       <ul>
         <li>
           <Icon name="tag"></Icon>
-          <Link to="/tags">标签页111</Link>
+          <Link to="/tags">标签页</Link>
         </li>
         <li>
           <Icon name="money"></Icon>
