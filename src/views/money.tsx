@@ -36,11 +36,23 @@ const NoteSection = styled.section`
     height: 70px;
     border: none;
     background-color: #f5f5f5;
-
   }
 `;
 const CategorySection = styled.section`
-  background-color: #bbecff;
+  background-color: #c4c4c4;
+  font-size: 24px;
+  >ul {
+    display: flex;
+    margin-bottom: 10px;
+    >li {
+      width: 50%;
+      padding: 16px 0;
+      text-align: center;
+      &.select {
+        box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.75);
+      }
+    }
+  }
 `;
 const MoneySection = styled.section`
   background-color: yellow;
@@ -59,7 +71,7 @@ function Money() {
           <li>住</li>
           <li>行</li>
         </ol>
-        <a>新增标签</a>
+        <a href="./Statistics.tsx">新增标签</a>
       </TagSection>
       <NoteSection>
         <span>备注: </span>
@@ -67,7 +79,7 @@ function Money() {
       </NoteSection>
       <CategorySection>
         <ul>
-          <li>支出</li>
+          <li className="select">支出</li>
           <li>收入</li>
         </ul>
       </CategorySection>
