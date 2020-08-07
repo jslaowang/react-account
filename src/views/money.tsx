@@ -4,21 +4,25 @@ import styled from "styled-components";
 
 const TagSection = styled.section`
   background-color: #fff;
-  height: 200px;  
   padding: 10px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
   >ol {
     >li {
       display: inline-block;
       background-color: #D9D9D9;
       margin: 2px 10px;
       padding: 2px 10px;
-      border-radius: 8px;
+      border-radius: 18px;
       font-size: 14px;
       color: #666;
     }
   }
-  > a {
-    margin: 10px 10px;
+  >a {
+    margin: 20px 10px;
     border-bottom: 1px solid #666;
     color: #666;
   }
@@ -43,27 +47,57 @@ const CategorySection = styled.section`
   font-size: 24px;
   >ul {
     display: flex;
-    margin-bottom: 10px;
     >li {
       width: 50%;
       padding: 16px 0;
       text-align: center;
       &.select {
-        box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.75);
+        box-shadow: inset 0px -4px 0px 0px rgba(0,0,0,0.75);
       }
     }
   }
 `;
 const MoneySection = styled.section`
-  background-color: yellow;
+  font-size: 36px;
+  line-height: 72px;
+  text-align: right;
+  padding: 0 10px;
 `;
 const NumberSection = styled.section`
-  background-color: green;
+  >.pad {
+    float: left;
+    width: 100%;
+    >button {
+      width: 25%;
+      height: 60px;
+      font-size: 18px;
+      border: none;
+      &.ok {
+        float: right;
+        height: 120px;
+      }
+      &.zero {
+        float: right;
+        width: 50%;
+      }
+      &:nth-child(4),
+      &:nth-child(8),
+      &:nth-child(12)
+      {
+        color: #1aad19;
+      }
+    }
+  }
 `;
+
+const MyLayout = styled(Layout)`
+  display: flex;
+  flex-direction: column;
+`
 
 function Money() {
   return (
-    <Layout>
+    <MyLayout>
       <TagSection>
         <ol>
           <li>衣</li>
@@ -87,17 +121,24 @@ function Money() {
         <span>123</span>
       </MoneySection>
       <NumberSection>
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>4</button>
-        <button>5</button>
-        <button>6</button>
-        <button>7</button>
-        <button>8</button>
-        <button>9</button>
+        <div className="pad clearfix">
+          <button>1</button>
+          <button>2</button>
+          <button>3</button>
+          <button>删除</button>
+          <button>4</button>
+          <button>5</button>
+          <button>6</button>
+          <button>清空</button>
+          <button>7</button>
+          <button>8</button>
+          <button>9</button>
+          <button className="ok">OK</button>
+          <button className="zero">0</button>
+          <button>.</button>
+        </div>
       </NumberSection>
-    </Layout>
+    </MyLayout>
   ) 
 }
 
