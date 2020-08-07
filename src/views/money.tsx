@@ -3,10 +3,41 @@ import Layout from "components/Layout";
 import styled from "styled-components";
 
 const TagSection = styled.section`
-  background-color: #ccc;
+  background-color: #fff;
+  height: 200px;  
+  padding: 10px;
+  >ol {
+    >li {
+      display: inline-block;
+      background-color: #D9D9D9;
+      margin: 2px 10px;
+      padding: 2px 10px;
+      border-radius: 8px;
+      font-size: 14px;
+      color: #666;
+    }
+  }
+  > a {
+    margin: 10px 10px;
+    border-bottom: 1px solid #666;
+    color: #666;
+  }
 `;
 const NoteSection = styled.section`
-  background-color: #cebbff;
+  display: flex;
+  align-items: center;
+  >span {
+    white-space: nowrap;
+    margin: 0 10px;
+  }
+  >input {
+    display: block;
+    width: 100%;
+    height: 70px;
+    border: none;
+    background-color: #f5f5f5;
+
+  }
 `;
 const CategorySection = styled.section`
   background-color: #bbecff;
@@ -22,11 +53,13 @@ function Money() {
   return (
     <Layout>
       <TagSection>
-        <button>衣</button>
-        <button>食</button>
-        <button>住</button>
-        <button>行</button>
-        <button>新增标签</button>
+        <ol>
+          <li>衣</li>
+          <li>食</li>
+          <li>住</li>
+          <li>行</li>
+        </ol>
+        <a>新增标签</a>
       </TagSection>
       <NoteSection>
         <span>备注: </span>

@@ -3,6 +3,7 @@ import { HashRouter as Router, Switch, Route, Redirect } from "react-router-dom"
 import Tags from "views/tags";
 import Money from "views/money";
 import Statistics from "views/Statistics";
+import NoMatch from "views/NoMatch";
 
 export default function App() {
   return (
@@ -24,8 +25,4 @@ export default function App() {
       </Switch>
     </Router>
   );
-}
-
-function NoMatch() {
-  return <h2>404</h2>;
 }
