@@ -19,10 +19,6 @@ function Money() {
       <NoteSection>
       </NoteSection>
       <CategorySection>
-        <ul>
-          <li className="select">支出</li>
-          <li>收入</li>
-        </ul>
       </CategorySection>
       <NumberSection>
         <div className="money">123</div>
