@@ -17,8 +17,6 @@ function Money() {
       <TagSection>
       </TagSection>
       <NoteSection>
-        <span>备注: </span>
-        <input type="text" />
       </NoteSection>
       <CategorySection>
         <ul>

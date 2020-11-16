@@ -1,6 +1,7 @@
+import React, { useState } from "react";
 import styled from "styled-components";
 
-const NoteSection = styled.section`
+const Wrapper = styled.section`
   display: flex;
   align-items: center;
   >span {
@@ -15,5 +16,15 @@ const NoteSection = styled.section`
     background-color: #f5f5f5;
   }
 `;
+const NoteSection: React.FC = () => {
+  const [note, setNote] = useState('')
+  console.log(note)
+  return (
+    <Wrapper>
+      <span>备注: </span>
+      <input type="text" placeholder="在这里添加备注" value={note} onChange={(e) => setNote(e.target.value)} />
+    </Wrapper>
+  )
+}
 
 export { NoteSection };
