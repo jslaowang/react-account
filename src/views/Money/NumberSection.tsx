@@ -35,7 +35,13 @@ const Wrapper = styled.section`
 `;
 
 const NumberSection: React.FC = () => {
-  const [output, setOutput] = useState('0')
+  const [output, _setOutput] = useState('0')
+  const setOutput = (text: string) => {
+    if (text.length > 16) {
+      text = text.slice(0, 16)
+    }
+    _setOutput(text)
+  }
   const onClickButtonWrapper = (e: React.MouseEvent) => {
     const text = (e.target as HTMLButtonElement).textContent
     if (text === null) { return }
@@ -57,13 +63,19 @@ const NumberSection: React.FC = () => {
         }
         break;
       case '.':
-        console.log(text)
+        if (output.indexOf('.') < 0) {
+          setOutput(output + text)
+        }
         break;
       case '删除':
-        console.log(text)
+        if (output.length === 1) {
+          setOutput('0')
+        } else {
+          setOutput(output.slice(0, -1))
+        }
         break;
       case '清空':
-        console.log(text)
+        setOutput('0')
         break;
       case 'OK':
         console.log(text)
