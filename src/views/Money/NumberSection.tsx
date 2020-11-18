@@ -80,6 +80,8 @@ const NumberSection: React.FC = () => {
       case 'OK':
         console.log(text)
         break;
+      default:
+        setOutput('0')
     }
   }
   return (
