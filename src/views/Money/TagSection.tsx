@@ -31,9 +31,14 @@ const Wrapper = styled.section`
   }
 `;
 
-const TagSection: React.FC = () => {
+type Props = {
+  value: string[],
+  onChange: (tags: string[]) => void
+}
+
+const TagSection: React.FC<Props> = (props) => {
   const [tags, setTags] = useState<string[]>(['衣', '食', '住', '行']);
-  const [selectTags, setSelectTags] = useState<string[]>([]);
+  const selectTags = props.value
   const onAddTags = () => {
     const tagName = window.prompt('新标签的名称为');
     if (tagName !== null) {
@@ -43,9 +48,9 @@ const TagSection: React.FC = () => {
   const onToggleTag = (tag: string) => {
     const index = selectTags.indexOf(tag);
     if (index >= 0) {
-      setSelectTags(selectTags.filter(item => item !== tag));
+      props.onChange(selectTags.filter(item => item !== tag));
     } else {
-      setSelectTags([...selectTags, tag]);
+      props.onChange([...selectTags, tag]);
     }
   };
   const getClass = (tag: string) => { return selectTags.indexOf(tag) >= 0 ? 'selected' : '' };

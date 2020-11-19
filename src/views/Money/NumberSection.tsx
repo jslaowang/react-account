@@ -1,14 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import { createrOutput } from "./NumberSection/createrOutput";
 import { Wrapper } from "./NumberSection/Wrapper";
 
-const NumberSection: React.FC = () => {
-  const [output, _setOutput] = useState('0')
+type Props = {
+  value: string,
+  onChange: (amount: string) => void
+}
+const NumberSection: React.FC<Props> = (props) => {
+  const output = props.value
   const setOutput = (text: string) => {
     if (text.length > 16) {
       text = text.slice(0, 16)
     }
-    _setOutput(text)
+    props.onChange(text)
   }
   const onClickButtonWrapper = (e: React.MouseEvent) => {
     const text = (e.target as HTMLButtonElement).textContent
