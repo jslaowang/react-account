@@ -14,16 +14,12 @@ const MyLayout = styled(Layout)`
 function Money() {
   return (
     <MyLayout>
-      <TagSection>
-      </TagSection>
-      <NoteSection>
-      </NoteSection>
-      <CategorySection>
-      </CategorySection>
-      <NumberSection>
-      </NumberSection>
+      <TagSection />
+      <NoteSection />
+      <CategorySection />
+      <NumberSection />
     </MyLayout>
-  ) 
+  )
 }
 
 export default Money;
