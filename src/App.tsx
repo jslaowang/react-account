@@ -1,10 +1,10 @@
 import React from "react";
 import { HashRouter as Router, Switch, Route, Redirect } from "react-router-dom";
-import Tags from "views/tags";
+import Tags from "views/tags/tags";
+import { Tag } from "views/tags/tag";
 import Money from "views/Money/Index";
 import Statistics from "views/Statistics";
 import NoMatch from "views/NoMatch";
-import { Tag } from "views/tag";
 
 export default function App() {
   return (

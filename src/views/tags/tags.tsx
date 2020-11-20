@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "components/Layout";
 import Icon from "components/Icon";
-import { useTags } from "./useTags"
+import { useTags } from "../components/useTags"
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
@@ -36,15 +36,15 @@ const Center = styled.div`
 
 function Tags() {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { tags, setTags } = useTags()
+  const { tags } = useTags()
   return (
     <Layout>
       <TagList>
         {
           tags.map(tag =>
-            <li key={tag}>
-              <Link to={"/tag/" + tag}>
-                <span>{tag}</span>
+            <li key={tag.id}>
+              <Link to={"/tag/" + tag.id}>
+                <span>{tag.name}</span>
                 <Icon name="right" />
               </Link>
             </li>

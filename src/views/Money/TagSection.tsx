@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { useTags } from "../useTags";
+import { useTags } from "../components/useTags";
 
 const Wrapper = styled.section`
   background-color: #fff;
@@ -33,8 +33,8 @@ const Wrapper = styled.section`
 `;
 
 type Props = {
-  value: string[],
-  onChange: (tags: string[]) => void
+  value: number[],
+  onChange: (tagIds: number[]) => void
 }
 
 const TagSection: React.FC<Props> = (props) => {
@@ -43,27 +43,27 @@ const TagSection: React.FC<Props> = (props) => {
   const onAddTags = () => {
     const tagName = window.prompt('新标签的名称为');
     if (tagName !== null) {
-      return setTags([...tags, tagName]);
+      return setTags([...tags, { id: Math.random(), name: tagName }]);
     }
   };
-  const onToggleTag = (tag: string) => {
-    const index = selectTags.indexOf(tag);
+  const onToggleTag = (tagId: number) => {
+    const index = selectTags.indexOf(tagId);
     if (index >= 0) {
-      props.onChange(selectTags.filter(item => item !== tag));
+      props.onChange(selectTags.filter(item => item !== tagId));
     } else {
-      props.onChange([...selectTags, tag]);
+      props.onChange([...selectTags, tagId]);
     }
   };
-  const getClass = (tag: string) => { return selectTags.indexOf(tag) >= 0 ? 'selected' : '' };
+  const getClass = (tagId: number) => { return selectTags.indexOf(tagId) >= 0 ? 'selected' : '' };
   return (
     // eslint-disable-next-line react/jsx-pascal-case
     <Wrapper>
       <ol>
         {tags.map(tag =>
-          <li key={tag} onClick={
-            () => { onToggleTag(tag) }
-          } className={getClass(tag)}
-          >{tag}</li>
+          <li key={tag.id} onClick={
+            () => { onToggleTag(tag.id) }
+          } className={getClass(tag.id)}
+          >{tag.name}</li>
         )}
       </ol>
       <button onClick={onAddTags}>新增标签</button>
